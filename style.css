@@ -17,10 +17,6 @@ body{
 }
 h1{
   color: #fff;
-  -webkit-transform: skew(0, -6deg);
-  -moz-transform: skew(0, -6deg);
-  -o-transform: skew(0, -6deg);
-  transform: skew(0, -6deg);
   text-shadow: 0 0 1px #800;
   font-size: 2.5rem;
 }  
@@ -74,15 +70,15 @@ select:hover + .arrow {
 button{
   /* from the lovely https://codepen.io/FelipeMarcos/full/tfhEg */
   position: relative;
-  background: #63A063;
+  background: #000000;
   border: 0;
   color: #fff;
   font-weight: bold;
   border-radius: 20px;
   box-shadow: 
-    inset 0 0 0 1px #2B862B, 
+    inset 0 0 0 1px #696969, 
     inset 0 0 0 2px rgba(255,255,255, .15),
-    0 8px 0 0 #648052,
+    0 8px 0 0 #696969,
     0 8px 0px 1px rgba(0,0,0,.5),
     0 8px 8px 1px rgba(0,0,0,.5);
 }
@@ -90,15 +86,15 @@ button:hover,
 button:focus{
   outline: 0;
   top: 2px;
-  background: #63A063;
+  background: #000000;
   -webkit-transition: 0.2s ease-in-out;
   -moz-transition: 0.2s ease-in-out;
   -o-transition: 0.2s ease-in-out;
   transition: 0.2s ease-in-out;
   box-shadow: 
-    inset 0 0 0 1px #2B862B, 
+    inset 0 0 0 1px #696969, 
     inset 0 0 0 2px rgba(255,255,255, .15),
-    0 6px 0 0 #648052,
+    0 6px 0 0 #696969,
     0 6px 0px 1px rgba(0,0,0,.5),
     0 6px 8px 1px rgba(0,0,0,.5);
 }
@@ -106,9 +102,9 @@ button:active{
   outline: 0;
   top: 8px;
   box-shadow: 
-    inset 0 0 0 1px #2B862B, 
+    inset 0 0 0 1px #696969, 
     inset 0 0 0 2px rgba(255,255,255, .15),
-    0 1px 0 0 #648052,
+    0 1px 0 0 #696969,
     0 1px 0px 1px rgba(0,0,0,.5),
     0 1px 8px 1px rgba(0,0,0,.5);
 }
@@ -117,4 +113,38 @@ button:active{
   cursor: pointer;
   text-decoration: underline;
   color: #000;
+}
+#result {
+  margin-top: 20px;
+  font-weight: bold;
+  animation-name: flashing;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+@keyframes flashing {
+  0% {
+    color: #ff0000;
+    font-size: 30px;
+  }
+
+  25% {
+    color: #fff700;
+    font-size: 50px;
+  }
+
+  50% {
+    color: #00ff00;
+    font-size: 30px;
+  }
+
+  75%{
+    color: #00ffea;
+    font-size: 50px;
+  }
+
+  100% {
+    color: #0000ff;
+    font-size: 30px;
+  }
 }

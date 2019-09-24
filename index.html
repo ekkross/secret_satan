@@ -1,10 +1,40 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="./style.css">
+	<title>Secret Satan</title>
+</head>
 <div class="wrapper">
-<h1>Secret Santa</h1>
+<h1>Secret Satan</h1>
 	<div class="select-wrap" id="peopleWrap">
-		<select id="people"></select>
+		<select id="matches">
+			<option value="">Who are you?</option>
+			<option value="amy">Amy</option>
+			<option value="brandon">Brandon</option>
+			<option value="chris">Chris</option>
+			<option value="erin">Erin</option>
+			<option value="kate">Kate</option>
+			<option value="keith">Keith</option>
+			<option value="laura">Laura</option>
+			<option value="robbie">Robbie</option>
+			<option value="sam">Sam</option>
+		</select>
 		<span class="arrow"></span>
 	</div>
-	<div><button id="choose">Who have I got?</button></div>
+	<div><button id="choose">Who do I have?</button></div>
 	<div id="result"></div>
 	<div class="close"><span id="close"></span></div>
 </div>
+<script>
+	const matches = [{"from":"keith","to":"erin"},{"from":"erin","to":"amy"},{"from":"kate","to":"chris"},{"from":"chris","to":"keith"},{"from":"brandon","to":"sam"},{"from":"laura","to":"kate"},{"from":"sam","to":"brandon"},{"from":"amy","to":"robbie"},{"from":"robbie","to":"laura"}]
+	
+	document.querySelector("#choose").addEventListener("click", e => {
+		const value = document.querySelector('#matches').value
+		const match = matches.find(m => m.from === value)
+		const fancyName = value.charAt(0).toUpperCase() + value.substr(1).toLowerCase()
+
+		if (confirm(`Are you really ${fancyName}???`)) {
+			document.querySelector('#result').innerHTML = match.to.charAt(0).toUpperCase() + match.to.substr(1).toLowerCase()
+		}
+	})
+</script>
+</html>
